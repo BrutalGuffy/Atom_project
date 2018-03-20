@@ -77,10 +77,12 @@ WSGI_APPLICATION = 'atom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'USER': 'artur',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
         'PASSWORD': 'artur1234',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

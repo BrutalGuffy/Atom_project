@@ -19,7 +19,7 @@ class Like(models.Model):
 
 
 class Board(models.Model):
-    title = models.CharField(max_length=30, unique=True)
+    title = models.CharField(max_length=30, unique=True, db_index=True)
     subject = models.CharField(max_length=240)
     created_by = models.ForeignKey(User, related_name='boards', on_delete=models.CASCADE)
 
@@ -28,11 +28,11 @@ class Board(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, db_index=True)
     subject = models.TextField(max_length=4000)
-    date = models.DateTimeField
+    date = models.DateTimeField(null=True, blank=True, db_index=True)
     created_by = models.ForeignKey(User, related_name='events', on_delete=models.CASCADE)
-    associated_with = models.ManyToManyField(Board)
+    boards = models.ManyToManyField(Board, through='Associate', related_name='events')
     likes = GenericRelation(Like)
 
     def __str__(self):
@@ -43,28 +43,31 @@ class Event(models.Model):
         return self.likes.count()
 
 
+class Associate(models.Model):
+    board = models.ForeignKey(Board, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+
+
 class Message(models.Model):
     message = models.TextField(max_length=4000)
     event = models.ForeignKey(Event, related_name='messages', on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
     updated_at = models.DateTimeField(null=True)
     created_by = models.ForeignKey(User, related_name='messages', on_delete=models.CASCADE)
     updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
-    likes = GenericRelation(Like)
+    likes = GenericRelation(Like, null=True)
 
     def __str__(self):
-        return self.created_by
+        return self.message
 
 
 class User_profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    is_organizer = models.BooleanField
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    is_organizer = models.BooleanField(default=False, db_index=True)
     profile_image = models.ImageField(upload_to='userpicks', blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     bio = models.TextField(max_length=500, blank=True)
 
-    def __str__(self):
-        return self.user
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
