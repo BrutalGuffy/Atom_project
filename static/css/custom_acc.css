@@ -1,0 +1,18 @@
+body {
+  -webkit-filter: invert(100%);filter: invert(100%);
+  background-image: url(../img/smoke.jpg);
+  background-size: 100%;
+}
+
+.logo {
+  font-family: 'Piedra', cursive;
+}
+
+.logo a {
+  color: rgba(100,25,255,.9);
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}
