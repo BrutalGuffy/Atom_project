@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'atom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'artur1234',
+        'NAME': 'atom1',
+        'USER': 'admin',
+        'PASSWORD': 'qwerty1234',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -136,3 +136,11 @@ STATICFILES_DIRS = [
 LOGOUT_REDIRECT_URL = 'home'
 
 LOGIN_REDIRECT_URL = 'home'
+
+SIGNUP_URL = 'profile'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+

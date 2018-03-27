@@ -14,7 +14,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect('home')
+            return redirect('profile')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
@@ -28,3 +28,4 @@ class UserUpdateView(UpdateView):
 
     def get_object(self):
         return self.request.user
+

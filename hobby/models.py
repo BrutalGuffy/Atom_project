@@ -33,6 +33,7 @@ class Event(models.Model):
     date = models.DateTimeField(null=True, blank=True, db_index=True)
     created_by = models.ForeignKey(User, related_name='events', on_delete=models.CASCADE)
     boards = models.ManyToManyField(Board, through='Associate', related_name='events')
+    event_pic = models.ImageField()
     likes = GenericRelation(Like)
 
     def __str__(self):
@@ -61,7 +62,7 @@ class Message(models.Model):
         return self.message
 
 
-class User_profile(models.Model):
+class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     is_organizer = models.BooleanField(default=False, db_index=True)
     profile_image = models.ImageField(upload_to='userpicks', blank=True, null=True)
@@ -72,8 +73,10 @@ class User_profile(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        User_profile.objects.create(user=instance)
+        Profile.objects.create(user=instance)
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+

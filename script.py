@@ -2,7 +2,7 @@ from hobby.models import Board
 from hobby.models import Like
 from hobby.models import Event
 from hobby.models import Message
-from hobby.models import User_profile
+from hobby.models import Profile
 from hobby.models import User
 import random
 import datetime
@@ -14,11 +14,11 @@ def insert_db():
         for i in range(count))
     users = User.objects.bulk_create(users)
 
-    boards = (Board(title='title %s' % i, subject='subject %s' % i, created_by_id=random.randint(users[0].pk, users[-1].pk))
+    boards = (Board(title='board_title %s' % i, subject='board_subject %s' % i, created_by_id=random.randint(users[0].pk, users[-1].pk))
         for i in range(count))
     boards = Board.objects.bulk_create(boards)
 
-    events = (Event(title='title %s' % i, subject='subject %s' % i, date='2020-10-10 10:10',
+    events = (Event(title='event_title %s' % i, subject='board_subject %s' % i, date='2020-10-10 10:10',
         created_by_id=random.randint(users[0].pk, users[-1].pk)) for i in range(count))
     events = Event.objects.bulk_create(events)
 
@@ -30,9 +30,9 @@ def insert_db():
         created_by_id=random.randint(users[0].pk, users[-1].pk)) for i in range(count))
     message = Message.objects.bulk_create(message)
 
-    profiles = (User_profile(user=users[i], is_organizer=random.choice([True, False]),
+    profiles = (Profile(user=users[i], is_organizer=random.choice([True, False]),
         birth_date='1996-05-06', bio='Hello, im %s' % i) for i in range(count))
-    profiles = User_profile.objects.bulk_create(profiles)
+    profiles = Profile.objects.bulk_create(profiles)
 
     likes = (Like(content_object=events[i], user=users[i]) for i in range(count))
     likes = Like.objects.bulk_create(likes)

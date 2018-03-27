@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
 
-{% for board in boards %}
+{% block title %}Hobby{% endblock %}
 
-    <p>
-        {{ board.title }}
-    </p>
+{% block content %}
 
-{% endfor %}
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            {% for board in boards %}
+                <a style="height: 300px" class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center border border-success" href="{% url 'events' board.pk %}">
+                  <div class="align-self-center navbar-brand">
+                      {{ board.title }}
+                  </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
