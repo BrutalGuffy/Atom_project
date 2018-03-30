@@ -33,7 +33,7 @@ class Event(models.Model):
     date = models.DateTimeField(null=True, blank=True, db_index=True)
     created_by = models.ForeignKey(User, related_name='events', on_delete=models.CASCADE)
     boards = models.ManyToManyField(Board, through='Associate', related_name='events')
-    event_pic = models.ImageField()
+    event_pic = models.ImageField(default='default.jpg')
     likes = GenericRelation(Like)
 
     def __str__(self):

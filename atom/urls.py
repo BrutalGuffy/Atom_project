@@ -31,4 +31,7 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('login', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
+
+    path('boards/<int:pk>/events/<int:event_pk>/add_like/', views.add_like, name='add_like')
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

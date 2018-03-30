@@ -1,6 +1,6 @@
 from django import forms
 
-from hobby.models import Profile
+from hobby.models import Profile, Message
 
 
 class ProfileForm(forms.ModelForm):
@@ -9,3 +9,8 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ('bio', 'is_organizer', 'profile_image', 'birth_date')
 
+class MessageForm(forms.ModelForm):
+
+    class Meta:
+        model = Message
+        fields = ('message',)
