@@ -2,13 +2,15 @@
 
 {% load static %}
 
-{% block title %}Events{% endblock %}
+{% block title %}
+    Event
+{% endblock %}
 
 {% block content %}
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-10 col-sm-10">
-                {% for event in events %}
 
                     <div class="card">
                         <div class="card-header">
@@ -24,18 +26,24 @@
                                 <p>
                                     {{ event.subject }}
                                 </p>
+                                <p>
+                                    {{ event.date }}
+                                </p>
+                                <p>
+                                    {{ event.created_by }}
+                                </p>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="d-flex justify-content-center">
-                                <a href="{% url 'event_detail' board.pk event.pk %}">
-                                    See detail
-                                </a>
+                                {% for message in messages %}
+                                {{ message.message }}
+                                {{ message.created_by }}
+                                {% endfor %}
+
                             </div>
                         </div>
                     </div>
-
-                {% endfor %}
 
             </div>
         </div>

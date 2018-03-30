@@ -27,7 +27,7 @@
                                 {{ user.username }}
                             </a>
                             <div class="dropdown-menu dropdown-menu" aria-labelledby="userMenu">
-                                <a class="dropdown-item" href="#">My account</a>
+                                <a class="dropdown-item" href="{% url 'profile' %}">My account</a>
                                 <a class="dropdown-item" href="#">Change password</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>

@@ -7,6 +7,7 @@ from accounts.forms import SignUpForm
 from hobby.forms import ProfileForm
 from hobby.models import Board
 from hobby.models import Event
+from hobby.models import Message
 from hobby.models import Like
 from hobby.models import Profile
 
@@ -23,21 +24,24 @@ def board_events(request, pk):
     return render(request, 'events.html', {'events': events, 'board': board, 'like': like})
 
 
-
 def profile(request):
+    user = request.user
     if request.method == 'POST':
-
-        bio = request.POST['bio']
-
-        user = User.objects.last()
-
-        profile = Profile.objects.update(
-            user=user,
-            bio=bio
-        )
-        return redirect('home')
-
+        form = ProfileForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
     else:
+        form = ProfileForm(instance=request.user.profile)
+    return render(request, 'profile.html', {'form': form})
 
-        return render(request, 'profile.html')
+
+def event_detail(request, pk, event_pk):
+    event = get_object_or_404(Event, boards__pk=pk, pk=event_pk)
+    try:
+        messages = event.messages.all()
+    except:
+        Message.DoesNotExist
+        messages = None
+    return render(request, 'event_detail.html', {'event': event, 'messages': messages})
 

@@ -25,6 +25,7 @@ from hobby import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('boards/<int:pk>/', views.board_events, name='events'),
+    path('boards/<int:pk>/events/<int:event_pk>/', views.event_detail, name='event_detail'),
     path('admin/', admin.site.urls),
     path('signup/', accounts_views.signup, name='signup'),
     path('profile', views.profile, name='profile'),

@@ -1,22 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base_acc.html' %}
 
-{% block title %}Start a New Topic{% endblock %}
-
-{% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
-  <li class="breadcrumb-item"><a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a></li>
-  <li class="breadcrumb-item active">New topic</li>
-{% endblock %}
+{% block title %}Sign up to Hobby app!{% endblock %}
 
 {% block content %}
-    <form method="post">
-      {% csrf_token %}
-        <div class="form-group">
-          <label for="id_bio">Biography</label>
-          <textarea class="form-control" id="id_bio" name="bio" rows="5"></textarea>
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <div class="card-img-bottom">
+        <div class="card-body">
+          <h3 class="card-title">Some info pls</h3>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-block">Finish</button>
+          </form>
         </div>
-        <button type="submit" class="btn btn-success">Post</button>
-    </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}
-
-

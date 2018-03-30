@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="mybase" uuid="34688e7c-ea35-4ffd-8820-86fba405a9af">
+    <data-source name="Django default" uuid="6c8a0649-26f8-4702-bbc8-3055a80aa4fd">
       <database-info product="PostgreSQL" version="9.5.12" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <user-name>myprojectuser</user-name>
+      <user-name>admin</user-name>
+      <user-password>dfdbdfdddfcfdfd8dfdedfd3df9bdf98df99df9e</user-password>
+      <resolve-scope>atom1:public,admin</resolve-scope>
     </data-source>
   </component>
 </project>
