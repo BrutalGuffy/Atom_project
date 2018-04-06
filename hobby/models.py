@@ -1,3 +1,6 @@
+import math
+
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
@@ -22,6 +25,8 @@ class Board(models.Model):
     title = models.CharField(max_length=30, unique=True, db_index=True)
     subject = models.CharField(max_length=240)
     created_by = models.ForeignKey(User, related_name='boards', on_delete=models.CASCADE)
+    board_pic = models.ImageField(default='default.jpg')
+    back_img = ArrayField(models.CharField(max_length=100), null=True)
 
     def __str__(self):
         return self.title
@@ -50,7 +55,7 @@ class Associate(models.Model):
 
 
 class Message(models.Model):
-    message = models.TextField(max_length=4000)
+    comment = models.TextField(max_length=4000)
     event = models.ForeignKey(Event, related_name='messages', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
     updated_at = models.DateTimeField(null=True)
@@ -59,13 +64,13 @@ class Message(models.Model):
     likes = GenericRelation(Like, null=True)
 
     def __str__(self):
-        return self.message
+        return self.comment
 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     is_organizer = models.BooleanField(default=False, db_index=True)
-    profile_image = models.ImageField(upload_to='userpicks', blank=True, null=True)
+    profile_image = models.ImageField(default='user.png', blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     bio = models.TextField(max_length=500, blank=True)
 

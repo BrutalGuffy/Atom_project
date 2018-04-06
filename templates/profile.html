@@ -3,18 +3,14 @@
 {% block title %}Sign up to Hobby app!{% endblock %}
 
 {% block content %}
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10 col-sm-12">
-      <div class="card-img-bottom">
-        <div class="card-body">
-          <h3 class="card-title">Some info pls</h3>
-          <form method="post" novalidate>
+    <div class="row d-flex justify-content-center">
+        <form method="post" enctype="multipart/form-data" novalidate class="col-lg-4">
             {% csrf_token %}
             {% include 'includes/form.html' %}
             <button type="submit" class="btn btn-primary btn-block">Finish</button>
-          </form>
-        </div>
-      </div>
+        </form>
+        <div class="col-lg-8">
+        <img src="{{ user.profile.profile_image.url }}">
     </div>
-  </div>
+    </div>
 {% endblock %}

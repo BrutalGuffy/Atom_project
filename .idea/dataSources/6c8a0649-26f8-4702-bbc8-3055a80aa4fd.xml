@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-03-27.20:14:46.027</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1087</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-04-06.17:46:31.112</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1820</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -150,7 +150,7 @@
     </table>
     <table id="35" parent="3" name="hobby_board">
       <ObjectId>17164</ObjectId>
-      <StateNumber>908</StateNumber>
+      <StateNumber>1820</StateNumber>
     </table>
     <table id="36" parent="3" name="hobby_event">
       <ObjectId>17174</ObjectId>
@@ -158,11 +158,11 @@
     </table>
     <table id="37" parent="3" name="hobby_like">
       <ObjectId>17185</ObjectId>
-      <StateNumber>908</StateNumber>
+      <StateNumber>1350</StateNumber>
     </table>
     <table id="38" parent="3" name="hobby_message">
       <ObjectId>17194</ObjectId>
-      <StateNumber>908</StateNumber>
+      <StateNumber>1629</StateNumber>
     </table>
     <table id="39" parent="3" name="hobby_profile">
       <ObjectId>17205</ObjectId>
@@ -825,325 +825,331 @@ model</ColNames>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <index id="154" parent="35" name="hobby_board_pkey">
+    <column id="154" parent="35" name="board_pic">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1820</StateNumber>
+    </column>
+    <index id="155" parent="35" name="hobby_board_pkey">
       <ObjectId>17168</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="155" parent="35" name="hobby_board_title_key">
+    <index id="156" parent="35" name="hobby_board_title_key">
       <ObjectId>17170</ObjectId>
       <ColNames>title</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="156" parent="35" name="hobby_board_title_b8fcce02_like">
+    <index id="157" parent="35" name="hobby_board_title_b8fcce02_like">
       <ObjectId>17221</ObjectId>
       <ColNames>title</ColNames>
     </index>
-    <index id="157" parent="35" name="hobby_board_created_by_id_1833a963">
+    <index id="158" parent="35" name="hobby_board_created_by_id_1833a963">
       <ObjectId>17222</ObjectId>
       <ColNames>created_by_id</ColNames>
     </index>
-    <key id="158" parent="35" name="hobby_board_pkey">
+    <key id="159" parent="35" name="hobby_board_pkey">
       <ObjectId>17169</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>hobby_board_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="159" parent="35" name="hobby_board_title_key">
+    <key id="160" parent="35" name="hobby_board_title_key">
       <ObjectId>17171</ObjectId>
       <ColNames>title</ColNames>
       <UnderlyingIndexName>hobby_board_title_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="160" parent="35" name="hobby_board_created_by_id_1833a963_fk_auth_user_id">
+    <foreign-key id="161" parent="35" name="hobby_board_created_by_id_1833a963_fk_auth_user_id">
       <ObjectId>17216</ObjectId>
       <ColNames>created_by_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefKeyName>auth_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="161" parent="36" name="id">
+    <column id="162" parent="36" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
       <DefaultExpression>nextval(&apos;hobby_event_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="162" parent="36" name="title">
+    <column id="163" parent="36" name="title">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="163" parent="36" name="subject">
+    <column id="164" parent="36" name="subject">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="164" parent="36" name="date">
+    <column id="165" parent="36" name="date">
       <Position>4</Position>
       <DataType>timestamp with time zone|0</DataType>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="165" parent="36" name="created_by_id">
+    <column id="166" parent="36" name="created_by_id">
       <Position>5</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="166" parent="36" name="event_pic">
+    <column id="167" parent="36" name="event_pic">
       <Position>6</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>991</StateNumber>
     </column>
-    <index id="167" parent="36" name="hobby_event_pkey">
+    <index id="168" parent="36" name="hobby_event_pkey">
       <ObjectId>17181</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="168" parent="36" name="hobby_event_title_84d3417c">
+    <index id="169" parent="36" name="hobby_event_title_84d3417c">
       <ObjectId>17228</ObjectId>
       <ColNames>title</ColNames>
     </index>
-    <index id="169" parent="36" name="hobby_event_title_84d3417c_like">
+    <index id="170" parent="36" name="hobby_event_title_84d3417c_like">
       <ObjectId>17229</ObjectId>
       <ColNames>title</ColNames>
     </index>
-    <index id="170" parent="36" name="hobby_event_date_d7cb8ea2">
+    <index id="171" parent="36" name="hobby_event_date_d7cb8ea2">
       <ObjectId>17230</ObjectId>
       <ColNames>date</ColNames>
     </index>
-    <index id="171" parent="36" name="hobby_event_created_by_id_39b8764f">
+    <index id="172" parent="36" name="hobby_event_created_by_id_39b8764f">
       <ObjectId>17231</ObjectId>
       <ColNames>created_by_id</ColNames>
     </index>
-    <key id="172" parent="36" name="hobby_event_pkey">
+    <key id="173" parent="36" name="hobby_event_pkey">
       <ObjectId>17182</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>hobby_event_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="173" parent="36" name="hobby_event_created_by_id_39b8764f_fk_auth_user_id">
+    <foreign-key id="174" parent="36" name="hobby_event_created_by_id_39b8764f_fk_auth_user_id">
       <ObjectId>17223</ObjectId>
       <ColNames>created_by_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefKeyName>auth_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="174" parent="37" name="id">
+    <column id="175" parent="37" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
       <DefaultExpression>nextval(&apos;hobby_like_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="175" parent="37" name="object_id">
+    <column id="176" parent="37" name="object_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="176" parent="37" name="content_type_id">
+    <column id="177" parent="37" name="content_type_id">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="177" parent="37" name="user_id">
+    <column id="178" parent="37" name="user_id">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <index id="178" parent="37" name="hobby_like_pkey">
+    <index id="179" parent="37" name="hobby_like_pkey">
       <ObjectId>17190</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="179" parent="37" name="hobby_like_content_type_id_ff355f40">
+    <index id="180" parent="37" name="hobby_like_content_type_id_ff355f40">
       <ObjectId>17242</ObjectId>
       <ColNames>content_type_id</ColNames>
     </index>
-    <index id="180" parent="37" name="hobby_like_user_id_04abd101">
+    <index id="181" parent="37" name="hobby_like_user_id_04abd101">
       <ObjectId>17243</ObjectId>
       <ColNames>user_id</ColNames>
     </index>
-    <key id="181" parent="37" name="hobby_like_pkey">
+    <key id="182" parent="37" name="hobby_like_pkey">
       <ObjectId>17191</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>hobby_like_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="182" parent="37" name="hobby_like_content_type_id_ff355f40_fk_django_content_type_id">
+    <foreign-key id="183" parent="37" name="hobby_like_content_type_id_ff355f40_fk_django_content_type_id">
       <ObjectId>17232</ObjectId>
       <ColNames>content_type_id</ColNames>
       <RefTableName>django_content_type</RefTableName>
       <RefKeyName>django_content_type_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="183" parent="37" name="hobby_like_user_id_04abd101_fk_auth_user_id">
+    <foreign-key id="184" parent="37" name="hobby_like_user_id_04abd101_fk_auth_user_id">
       <ObjectId>17237</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefKeyName>auth_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="184" parent="37" name="hobby_like_object_id_check">
+    <check id="185" parent="37" name="hobby_like_object_id_check">
       <ObjectId>17189</ObjectId>
       <ColNames>object_id</ColNames>
       <Predicate>object_id &gt;= 0</Predicate>
     </check>
-    <column id="185" parent="38" name="id">
+    <column id="186" parent="38" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
       <DefaultExpression>nextval(&apos;hobby_message_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="186" parent="38" name="message">
+    <column id="187" parent="38" name="comment">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>908</StateNumber>
+      <StateNumber>1633</StateNumber>
     </column>
-    <column id="187" parent="38" name="created_at">
+    <column id="188" parent="38" name="created_at">
       <Position>3</Position>
       <DataType>timestamp with time zone|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="188" parent="38" name="updated_at">
+    <column id="189" parent="38" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp with time zone|0</DataType>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="189" parent="38" name="created_by_id">
+    <column id="190" parent="38" name="created_by_id">
       <Position>5</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="190" parent="38" name="event_id">
+    <column id="191" parent="38" name="event_id">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="191" parent="38" name="updated_by_id">
+    <column id="192" parent="38" name="updated_by_id">
       <Position>7</Position>
       <DataType>integer|0</DataType>
       <StateNumber>908</StateNumber>
     </column>
-    <index id="192" parent="38" name="hobby_message_pkey">
+    <index id="193" parent="38" name="hobby_message_pkey">
       <ObjectId>17201</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="193" parent="38" name="hobby_message_created_at_c92acb95">
+    <index id="194" parent="38" name="hobby_message_created_at_c92acb95">
       <ObjectId>17259</ObjectId>
       <ColNames>created_at</ColNames>
     </index>
-    <index id="194" parent="38" name="hobby_message_created_by_id_93450674">
+    <index id="195" parent="38" name="hobby_message_created_by_id_93450674">
       <ObjectId>17260</ObjectId>
       <ColNames>created_by_id</ColNames>
     </index>
-    <index id="195" parent="38" name="hobby_message_event_id_d385d27e">
+    <index id="196" parent="38" name="hobby_message_event_id_d385d27e">
       <ObjectId>17261</ObjectId>
       <ColNames>event_id</ColNames>
     </index>
-    <index id="196" parent="38" name="hobby_message_updated_by_id_6fdffc4a">
+    <index id="197" parent="38" name="hobby_message_updated_by_id_6fdffc4a">
       <ObjectId>17262</ObjectId>
       <ColNames>updated_by_id</ColNames>
     </index>
-    <key id="197" parent="38" name="hobby_message_pkey">
+    <key id="198" parent="38" name="hobby_message_pkey">
       <ObjectId>17202</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>hobby_message_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="198" parent="38" name="hobby_message_created_by_id_93450674_fk_auth_user_id">
+    <foreign-key id="199" parent="38" name="hobby_message_created_by_id_93450674_fk_auth_user_id">
       <ObjectId>17244</ObjectId>
       <ColNames>created_by_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefKeyName>auth_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="199" parent="38" name="hobby_message_event_id_d385d27e_fk_hobby_event_id">
+    <foreign-key id="200" parent="38" name="hobby_message_event_id_d385d27e_fk_hobby_event_id">
       <ObjectId>17249</ObjectId>
       <ColNames>event_id</ColNames>
       <RefTableName>hobby_event</RefTableName>
       <RefKeyName>hobby_event_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="200" parent="38" name="hobby_message_updated_by_id_6fdffc4a_fk_auth_user_id">
+    <foreign-key id="201" parent="38" name="hobby_message_updated_by_id_6fdffc4a_fk_auth_user_id">
       <ObjectId>17254</ObjectId>
       <ColNames>updated_by_id</ColNames>
       <RefTableName>auth_user</RefTableName>
       <RefKeyName>auth_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="201" parent="39" name="id">
+    <column id="202" parent="39" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
       <DefaultExpression>nextval(&apos;hobby_user_profile_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="202" parent="39" name="is_organizer">
+    <column id="203" parent="39" name="is_organizer">
       <Position>2</Position>
       <DataType>boolean|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="203" parent="39" name="profile_image">
+    <column id="204" parent="39" name="profile_image">
       <Position>3</Position>
       <DataType>varchar(100)|0</DataType>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="204" parent="39" name="birth_date">
+    <column id="205" parent="39" name="birth_date">
       <Position>4</Position>
       <DataType>date|0</DataType>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="205" parent="39" name="bio">
+    <column id="206" parent="39" name="bio">
       <Position>5</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <column id="206" parent="39" name="user_id">
+    <column id="207" parent="39" name="user_id">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>908</StateNumber>
     </column>
-    <index id="207" parent="39" name="hobby_user_profile_pkey">
+    <index id="208" parent="39" name="hobby_user_profile_pkey">
       <ObjectId>17212</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="208" parent="39" name="hobby_user_profile_user_id_key">
+    <index id="209" parent="39" name="hobby_user_profile_user_id_key">
       <ObjectId>17214</ObjectId>
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="209" parent="39" name="hobby_user_profile_is_organizer_1a5f641f">
+    <index id="210" parent="39" name="hobby_user_profile_is_organizer_1a5f641f">
       <ObjectId>17268</ObjectId>
       <ColNames>is_organizer</ColNames>
     </index>
-    <key id="210" parent="39" name="hobby_user_profile_pkey">
+    <key id="211" parent="39" name="hobby_user_profile_pkey">
       <ObjectId>17213</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>hobby_user_profile_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="211" parent="39" name="hobby_user_profile_user_id_key">
+    <key id="212" parent="39" name="hobby_user_profile_user_id_key">
       <ObjectId>17215</ObjectId>
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>hobby_user_profile_user_id_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="212" parent="39" name="hobby_user_profile_user_id_ee4e68c1_fk_auth_user_id">
+    <foreign-key id="213" parent="39" name="hobby_user_profile_user_id_ee4e68c1_fk_auth_user_id">
       <ObjectId>17263</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableName>auth_user</RefTableName>

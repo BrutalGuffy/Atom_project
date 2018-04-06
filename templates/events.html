@@ -32,6 +32,10 @@
                                     See detail
                                 </a>
                             </div>
+                            <div class="like">
+                                <img class="like__icon" width="10%" height="10%" src="{% static "like.svg" %}" id="{{ event.id }}"> </img>
+                                <p class="like__count" id="count {{ event.id }}">{{ event.total_likes }}</p>
+                            </div>
                         </div>
                     </div>
 
@@ -41,4 +45,10 @@
         </div>
     </div>
 
+    {% include 'includes/pagination.html' %}
+
+{% endblock %}
+
+{%  block script %}
+    <script src="{% static 'js/like.js' %}"></script>
 {% endblock %}

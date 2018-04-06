@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/event_img.css' %}">
     <link rel="stylesheet" href="{% static 'css/card.css' %}">
+
     {% block stylesheet %}{% endblock %}
 </head>
 
+<body>
 {% block body %}
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -50,11 +52,12 @@
 
 
 {% endblock body %}
+</body>
 
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
-
-
+{% block script %}
+{% endblock %}
 </html>

@@ -8,7 +8,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>admin</user-name>
       <user-password>dfdbdfdddfcfdfd8dfdedfd3df9bdf98df99df9e</user-password>
-      <resolve-scope>atom1:public,admin</resolve-scope>
+      <resolve-scope>atom1:admin,public</resolve-scope>
     </data-source>
   </component>
 </project>

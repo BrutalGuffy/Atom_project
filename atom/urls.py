@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import debug_toolbar
 from django.conf.urls import url
 from django.urls import include, path
 from django.contrib import admin
@@ -32,6 +33,7 @@ urlpatterns = [
     path('login', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
 
-    path('boards/<int:pk>/events/<int:event_pk>/add_like/', views.add_like, name='add_like')
+    path('add_like/', views.add_like, name='add_like'),
+    path('__debug__/', include(debug_toolbar.urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
