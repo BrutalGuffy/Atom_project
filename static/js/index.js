@@ -25,13 +25,20 @@ $(document).ready(function () {
                 coms.toString();
                 console.log(coms[2].comment);
                 console.log(coms.length);
-                var list = "";
                 for (i=0; i<coms.length; i++) {
-                    list +="<li>"+coms[i].comment+"</li>";
-                    list +="<li>"+coms[i].created_at+"</li>";
+                    $("#comslist").append(`<div class="card mb-2">
+                        <div class="card-body p-3">
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <strong class="text-muted" id="comslist"></strong>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <small class="text-muted">`+coms[i].comment+`</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`);
                 }
-                $("#comslist").append(list);
-                console.log(list)
             }
         });
     });
