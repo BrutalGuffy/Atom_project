@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block stylesheet %}
+
+{% endblock %}
+
 {% block title %}Events{% endblock %}
 
 {% block content %}
@@ -36,6 +40,7 @@
                                 <img class="like__icon" width="10%" height="10%" src="{% static "like.svg" %}" id="{{ event.id }}"> </img>
                                 <p class="like__count" id="count {{ event.id }}">{{ event.total_likes }}</p>
                             </div>
+                            {{ event.messages.count }}
                         </div>
                     </div>
 
@@ -44,8 +49,6 @@
             </div>
         </div>
     </div>
-
-    {% include 'includes/pagination.html' %}
 
 {% endblock %}
 

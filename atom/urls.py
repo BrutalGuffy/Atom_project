@@ -34,6 +34,7 @@ urlpatterns = [
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
 
     path('add_like/', views.add_like, name='add_like'),
+    path('boards/<int:pk>/events/<int:event_pk>/more_comments/', views.more_comments, name='more_comments'),
     path('__debug__/', include(debug_toolbar.urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

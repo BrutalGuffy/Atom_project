@@ -27,6 +27,7 @@ def board_events(request, pk):
     events = board.events.all()
     like = events.count()
 
+
     return render(request, 'events.html', {'events': events, 'board': board, 'like': like})
 
 
@@ -45,6 +46,7 @@ def profile(request):
 def event_detail(request, pk, event_pk):
     board = get_object_or_404(Board, pk=pk)
     event = get_object_or_404(Event, boards__pk=pk, pk=event_pk)
+    messages = event.messages.all()
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
@@ -56,18 +58,13 @@ def event_detail(request, pk, event_pk):
     else:
         form = MessageForm()
 
-    try:
-        messages = event.messages.all()
-
-    except:
-        messages = None
-
     return render(request, 'event_detail.html',
                   {'event': event,
-                   'messages': messages,
                    'total_likes': event.total_likes,
                    'board': board,
-                   'form': form})
+                   'form': form,
+                   'messages': messages,
+                   })
 
 
 def add_like(request):
@@ -83,4 +80,15 @@ def add_like(request):
             like.delete()
 
         return JsonResponse({"new_total_likes": event.likes.count()})
+
+
+def more_comments(request, pk, event_pk):
+    page = int(request.GET['page'])
+    event = get_object_or_404(Event, boards__pk=pk, pk=event_pk)
+    comments = event.messages.all()[(page-1) * 10:page * 10].values()
+    if request.method == "GET" and request.is_ajax():
+
+        return JsonResponse({'comments': list(comments)})
+
+
 

@@ -10,13 +10,27 @@
     <link rel="stylesheet" href="{% static 'css/event_img.css' %}">
     <link rel="stylesheet" href="{% static 'css/card.css' %}">
 
+    <link rel="stylesheet" href="{% static 'css/sitestyle.css' %}">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var bgArray = {{ board.back_img|safe }};
+            var bg = bgArray[Math.floor(Math.random() * bgArray.length)];
+            console.log(bgArray);
+            console.log(bg);
+            var path = '/media/board_back/';
+
+            $('body').css('background-image', 'url(' + path + bg + ')');
+        });
+    </script>
+
     {% block stylesheet %}{% endblock %}
 </head>
 
 <body>
 {% block body %}
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}" style="color: red">Hobby</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +40,7 @@
                 {% if user.is_authenticated %}
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: red">
                                 {{ user.username }}
                             </a>
                             <div class="dropdown-menu dropdown-menu" aria-labelledby="userMenu">
@@ -57,7 +71,6 @@
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/index.js' %}"></script>
 {% block script %}
 {% endblock %}
 </html>
