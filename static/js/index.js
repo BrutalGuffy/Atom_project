@@ -23,19 +23,17 @@ $(document).ready(function () {
                 console.log(page);
                 var coms = data.comments;
                 coms.toString();
-                console.log(coms[2].comment);
-                console.log(coms.length);
                 for (i=0; i<coms.length; i++) {
                     $("#comslist").append(`<div class="card mb-2">
                         <div class="card-body p-3">
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <strong class="text-muted" id="comslist"></strong>
+                                    <strong class="text-muted" id="comslist">`+coms[i].created_by__username+`</strong>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <small class="text-muted">`+coms[i].comment+`</small>
+                                    <small class="text-muted">`+coms[i].created_at+`</small>
                                 </div>
-                            </div>
+                            </div> `+coms[i].comment+`
                         </div>
                     </div>`);
                 }

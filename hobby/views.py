@@ -85,10 +85,12 @@ def add_like(request):
 def more_comments(request, pk, event_pk):
     page = int(request.GET['page'])
     event = get_object_or_404(Event, boards__pk=pk, pk=event_pk)
-    comments = event.messages.all()[(page-1) * 10:page * 10].values()
+    comments = event.messages.all().order_by('created_at')[(page-1) * 10:page * 10].values()
     if request.method == "GET" and request.is_ajax():
 
-        return JsonResponse({'comments': list(comments)})
+        return JsonResponse({'comments': list(comments.values('created_at', 'created_by__username', 'comment', 'id', 'likes'))})
+
+
 
 
 

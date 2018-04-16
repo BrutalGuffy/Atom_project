@@ -62,6 +62,7 @@ class Message(models.Model):
     created_by = models.ForeignKey(User, related_name='messages', on_delete=models.CASCADE)
     updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
     likes = GenericRelation(Like, null=True)
+    like_count = likes.count()
 
     def __str__(self):
         return self.comment
