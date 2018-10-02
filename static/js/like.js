@@ -12,7 +12,14 @@ function addLike(img_id, count_id) {
       dataType: 'json',
       cache: false,
       success: function(data){
-        document.getElementById(count_id).textContent = data.new_total_likes;
+        document.getElementById(count_id).textContent = `Likes `+data.new_total_likes;
+        var isLiked = $('.like__icon').css("fill");
+        if (isLiked === 'rgb(255, 0, 0)') {
+            $('.like__icon').css({fill: '#ffb8b8'});
+        }
+        else {
+            $('.like__icon').css({fill: '#ff0000'});
+        }
       }
     });
 }

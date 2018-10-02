@@ -1,4 +1,5 @@
 import math
+import os
 
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
@@ -9,6 +10,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from functools import wraps
 
 
 class Like(models.Model):
@@ -25,11 +27,28 @@ class Board(models.Model):
     title = models.CharField(max_length=30, unique=True, db_index=True)
     subject = models.CharField(max_length=240)
     created_by = models.ForeignKey(User, related_name='boards', on_delete=models.CASCADE)
-    board_pic = models.ImageField(default='default.jpg')
-    back_img = ArrayField(models.CharField(max_length=100), null=True)
+    pic = models.ImageField(blank=True, null=True)
+    date = models.DateTimeField(null=True, blank=True, db_index=True)
 
     def __str__(self):
-        return self.title
+        return str(self.pk)
+
+
+class Task(models.Model):
+    file = models.FileField()
+    model_name = models.CharField(max_length=30)
+    date = models.DateTimeField(null=True, blank=True)
+    created_by = models.CharField(max_length=100)
+
+    def __str__(self):
+        return str(self.model_name)
+
+
+@receiver(models.signals.post_delete, sender=Task)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    if instance.file:
+        if os.path.isfile(instance.file.path):
+            os.remove(instance.file.path)
 
 
 class Event(models.Model):
@@ -38,7 +57,7 @@ class Event(models.Model):
     date = models.DateTimeField(null=True, blank=True, db_index=True)
     created_by = models.ForeignKey(User, related_name='events', on_delete=models.CASCADE)
     boards = models.ManyToManyField(Board, through='Associate', related_name='events')
-    event_pic = models.ImageField(default='default.jpg')
+    pic = models.ImageField(blank=True, null=True)
     likes = GenericRelation(Like)
 
     def __str__(self):
@@ -62,7 +81,6 @@ class Message(models.Model):
     created_by = models.ForeignKey(User, related_name='messages', on_delete=models.CASCADE)
     updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
     likes = GenericRelation(Like, null=True)
-    like_count = likes.count()
 
     def __str__(self):
         return self.comment
@@ -71,7 +89,7 @@ class Message(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     is_organizer = models.BooleanField(default=False, db_index=True)
-    profile_image = models.ImageField(default='user.png', blank=True, null=True)
+    profile_image = models.ImageField(blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     bio = models.TextField(max_length=500, blank=True)
 

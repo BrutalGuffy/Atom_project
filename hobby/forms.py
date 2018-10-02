@@ -11,7 +11,7 @@ class ProfileForm(forms.ModelForm):
 
 
 class MessageForm(forms.ModelForm):
-
+    comment = forms.CharField(label='', widget=forms.Textarea)
     class Meta:
         model = Message
         fields = ('comment',)

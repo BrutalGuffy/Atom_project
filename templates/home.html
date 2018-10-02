@@ -6,13 +6,14 @@
 
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            {% for board in boards %}
-                <a style="height: 300px; background-image: url({{ board.board_pic.url }}); background-size: auto 100%;" class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center border border-light" href="{% url 'events' board.pk %}">
-                  <div class="align-self-center navbar-brand" style="color: red;">
-                      {{ board.title }}
-                  </div>
-                </a>
-            {% endfor %}
+{#            {% for board in boards %}#}
+{#                <a style="height: 300px; background-image: url({{ board.board_pic.url }}); background-size: auto 100%;" class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center border border-light" href="{% url 'events' board.pk %}">#}
+{#                  <div class="align-self-center navbar-brand" style="color: red;">#}
+{#                      {{ board.title }}#}
+{#                  </div>#}
+{#                </a>#}
+{#            {% endfor %}#}
+            kek
         </div>
     </div>
 
