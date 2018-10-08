@@ -1,3 +1,6 @@
+"""Модуль содержит методы, вызываемые в admin.py."""
+
+
 import os
 from pathlib import Path
 
@@ -12,6 +15,8 @@ MEDIA = 'media'
 
 
 def get_classes():
+    """Метод возвращает список классов, в которых потенциально могут
+    храниться медиафайлы."""
     with DisableSignals():
         instances = FileSynchronizer.objects.all()
         for instance in instances:
@@ -34,6 +39,9 @@ def get_classes():
 
 
 def get_files_list():
+    """Метод возвращает список всех файлов в указанной директории
+    'MEDIA' и её сабдиректориях вместе с путями,
+    относительно 'MEDIA'."""
     media_files = []
     for path, subdirs, files in os.walk(MEDIA):
         for name in files:
@@ -47,6 +55,11 @@ def get_files_list():
 
 
 def search_for_files(classes, media_files):
+    """Метод принимает список классов, в которых могут потенциально храниться
+    медиафайлы и список всех файлов. Для каждого файла создается объект с
+    ссылкой на файл и указанием к какой модели он привязан.
+    Если файл не привязан ни к одной из существующих моделей,
+    он будет помечен соответвующим образом."""
     for c in classes:
         fields = c._meta.get_fields()
         instances = c.objects.all()

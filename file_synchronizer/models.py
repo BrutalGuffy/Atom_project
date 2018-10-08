@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 
 class FileSynchronizer(models.Model):
+    """Класс синхронизатора файлов."""
     file = models.FileField()
     model_name = models.CharField(max_length=30)
     date = models.DateTimeField(null=True, blank=True)
@@ -16,6 +17,8 @@ class FileSynchronizer(models.Model):
 
 @receiver(models.signals.post_delete, sender=FileSynchronizer)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """Метод удаляет файлы из базы данных, при удалении их через
+    Django admin."""
     if instance.file:
         if os.path.isfile(instance.file.path):
             os.remove(instance.file.path)
