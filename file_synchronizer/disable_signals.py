@@ -1,5 +1,13 @@
 from collections import defaultdict
-from django.db.models.signals import *
+
+from django.db.models.signals import post_delete
+from django.db.models.signals import post_init
+from django.db.models.signals import post_migrate
+from django.db.models.signals import post_save
+from django.db.models.signals import pre_delete
+from django.db.models.signals import pre_init
+from django.db.models.signals import pre_migrate
+from django.db.models.signals import pre_save
 
 
 class DisableSignals(object):

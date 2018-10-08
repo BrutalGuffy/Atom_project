@@ -34,23 +34,6 @@ class Board(models.Model):
         return str(self.pk)
 
 
-class Task(models.Model):
-    file = models.FileField()
-    model_name = models.CharField(max_length=30)
-    date = models.DateTimeField(null=True, blank=True)
-    created_by = models.CharField(max_length=100)
-
-    def __str__(self):
-        return str(self.model_name)
-
-
-@receiver(models.signals.post_delete, sender=Task)
-def auto_delete_file_on_delete(sender, instance, **kwargs):
-    if instance.file:
-        if os.path.isfile(instance.file.path):
-            os.remove(instance.file.path)
-
-
 class Event(models.Model):
     title = models.CharField(max_length=100, db_index=True)
     subject = models.TextField(max_length=4000)

@@ -1,24 +1,10 @@
 from django.db.models import Count
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from os import listdir
-from os.path import isfile, join
-from pathlib import Path
 
-from django.db.models.fields.files import FileField, ImageField
-
-import hobby
-from hobby.disable_signals import DisableSignals
 from hobby.forms import ProfileForm, MessageForm
 from hobby.models import Board
 from hobby.models import Event
-from hobby.models import Task
-from hobby.models import Message
-from hobby.models import Like
-from hobby.models import Profile
-import django.apps
-
-
 
 
 def home(request):
