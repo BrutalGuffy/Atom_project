@@ -1,23 +1,62 @@
 """Модуль содержит методы, вызываемые в admin.py."""
 
-
 import os
+from collections import defaultdict
 from pathlib import Path
 
 import django.apps
 from django.db.models.fields.files import FileField
 from django.db.models.fields.files import ImageField
+from django.db.models.signals import post_delete
+from django.db.models.signals import post_init
+from django.db.models.signals import post_migrate
+from django.db.models.signals import post_save
+from django.db.models.signals import pre_delete
+from django.db.models.signals import pre_init
+from django.db.models.signals import pre_migrate
+from django.db.models.signals import pre_save
 
-from file_synchronizer.disable_signals import DisableSignals
 from file_synchronizer.models import FileSynchronizer
 
 MEDIA = 'media'
+
+
+class DisableSignals(object):
+    """Класс для управления сигналами."""
+    def __init__(self, disabled_signals=None):
+        self.stashed_signals = defaultdict(list)
+        self.disabled_signals = disabled_signals or [
+            pre_init, post_init,
+            pre_save, post_save,
+            pre_delete, post_delete,
+            pre_migrate, post_migrate,
+        ]
+
+    def __enter__(self):
+        for signal in self.disabled_signals:
+            self.disconnect(signal)
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        for signal in list(self.stashed_signals):
+            self.reconnect(signal)
+
+    def disconnect(self, signal):
+        """Метод отключающий сигналы."""
+        self.stashed_signals[signal] = signal.receivers
+        signal.receivers = []
+
+    def reconnect(self, signal):
+        """Метод включающий сигналы"""
+        signal.receivers = self.stashed_signals.get(signal, [])
+        del self.stashed_signals[signal]
 
 
 def get_classes():
     """Метод возвращает список классов, в которых потенциально могут
     храниться медиафайлы."""
     with DisableSignals():
+        """Сигналы отключаются для удаления всех инстансов без
+        удаления файлов из базы данных"""
         instances = FileSynchronizer.objects.all()
         for instance in instances:
             instance.delete()
