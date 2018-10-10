@@ -2,12 +2,11 @@
 
 from django.contrib import admin
 from file_synchronizer.models import FileSynchronizer
-from file_synchronizer.utils import search_for_files
+from file_synchronizer.utils import search_for_files, clear
 from file_synchronizer.utils import get_classes
 from file_synchronizer.utils import get_files_list
 
 MEDIA_ROOT = 'media/'
-DIR = ''
 
 
 def delete_unknown_photos(modeladmin, request, queryset):
@@ -24,9 +23,9 @@ def refresh(modeladmin, request, queryset):
     """Метод для получения актуальной информации касательно привязанных
     и не привязанных к моделям файлов. Выполнен с помощью Admin actions.
     Не требует выделения объектов в панели админа."""
+    clear()
     search_for_files(classes=get_classes(),
-                     media_files=get_files_list(root_media=MEDIA_ROOT,
-                                                dir=DIR))
+                     media_files=get_files_list(root_media=MEDIA_ROOT))
 
 
 @admin.register(FileSynchronizer)

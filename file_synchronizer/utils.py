@@ -2,6 +2,7 @@
 
 import os
 from collections import defaultdict
+from pathlib import Path
 
 import django.apps
 from django.db.models.fields.files import FileField
@@ -48,16 +49,18 @@ class DisableSignals(object):
         del self.stashed_signals[signal]
 
 
-def get_classes():
-    """Метод возвращает список классов, в которых потенциально могут
-    храниться медиафайлы."""
+def clear():
+    """Сигналы отключаются для удаления всех инстансов без
+            удаления файлов из базы данных"""
     with DisableSignals():
-        """Сигналы отключаются для удаления всех инстансов без
-        удаления файлов из базы данных"""
         instances = FileSynchronizer.objects.all()
         for instance in instances:
             instance.delete()
 
+
+def get_classes():
+    """Метод возвращает список классов, в которых потенциально могут
+    храниться медиафайлы."""
     model_list = django.apps.apps.get_models()
     classes = []
 
@@ -75,26 +78,13 @@ def get_classes():
     return classes
 
 
-def get_files_list(root_media, dir):
+def get_files_list(root_media):
     """Метод возвращает список всех файлов в указанной
-    директории 'MEDIA_ROOT' и её сабдиректориях, или в сабдиректории
-    DIR, если она указана."""
+    директории 'root_media' и её сабдиректориях"""
     media_files = []
-    for path, subdirs, files in os.walk(root_media + dir):
+    for path, subdirs, files in os.walk(root_media):
         for name in files:
-            if dir == '':
-                if path == root_media:
-                    media_files.append(os.path.join(name))
-                else:
-                    media_files.append(os.path.join
-                                       (path[len(root_media): len(path)],
-                                        name))
-            else:
-                if path == root_media:
-                    media_files.append(os.path.join(name))
-                else:
-                    media_files.append(os.path.join
-                                       (dir, name))
+            media_files.append(os.path.join(path, name))
 
     print(media_files)
     return media_files
@@ -115,15 +105,17 @@ def search_for_files(classes, media_files):
                         == ImageField:
                     file = getattr(instance, field.name)
                     if file:
-                        FileSynchronizer.objects.create(
-                            file=file,
-                            model_name=instance.__class__.__name__,
-                            date=instance.date,
-                            created_by=instance.created_by,
-                        )
+                        if Path(file.path).exists():
+                            FileSynchronizer.objects.create(
+                                file=file.url[1:],
+                                path=file,
+                                model_name=instance.__class__.__name__,
+                                date=instance.date,
+                                created_by=instance.created_by,
+                            )
 
-                    if file in media_files:
-                        media_files.pop(media_files.index(file))
+                        if file.url[1:] in media_files:
+                            media_files.pop(media_files.index(file.url[1:]))
 
     for media_file in media_files:
         FileSynchronizer.objects.create(
