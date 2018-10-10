@@ -1,6 +1,9 @@
 from django.http import JsonResponse
 
-from file_synchronizer.utils import search_for_files, get_classes, get_files_list
+from file_synchronizer.utils import get_classes
+from file_synchronizer.utils import get_files_list
+from file_synchronizer.utils import search_for_files
+
 MEDIA_ROOT = 'media/'
 DIR = ''
 

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6588021d-1145-47f6-a845-d7dfc6e4a16f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/atom/urls.py" afterPath="$PROJECT_DIR$/atom/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_synchronizer/views.py" afterPath="$PROJECT_DIR$/file_synchronizer/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/file_synchronizer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="270">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -145,14 +144,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/atom/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
-              <folding>
-                <element signature="e#628#648#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="82">
+              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -265,8 +262,8 @@
         <option value="$PROJECT_DIR$/file_synchronizer/admin.py" />
         <option value="$PROJECT_DIR$/file_synchronizer/tests.py" />
         <option value="$PROJECT_DIR$/file_synchronizer/utils.py" />
-        <option value="$PROJECT_DIR$/file_synchronizer/views.py" />
         <option value="$PROJECT_DIR$/atom/urls.py" />
+        <option value="$PROJECT_DIR$/file_synchronizer/views.py" />
       </list>
     </option>
   </component>
@@ -799,6 +796,14 @@
       <option name="presentableId" value="Default" />
       <updated>1520348974818</updated>
     </task>
+    <task id="LOCAL-00001" summary="adds url for initial refresh() method">
+      <created>1539172365777</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1539172365777</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -817,7 +822,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1215" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21300256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -826,9 +831,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34061697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34146342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34146342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18625277" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18625277" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -847,6 +852,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adds url for initial refresh() method" />
+    <option name="LAST_COMMIT_MESSAGE" value="adds url for initial refresh() method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -976,6 +985,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,22 +1175,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_synchronizer/views.py">
+    <entry file="file://$PROJECT_DIR$/atom/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="82">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/atom/urls.py">
+    <entry file="file://$PROJECT_DIR$/file_synchronizer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+        <state relative-caret-position="270">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#628#648#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
