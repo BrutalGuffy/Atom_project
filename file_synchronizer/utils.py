@@ -2,7 +2,6 @@
 
 import os
 from collections import defaultdict
-from pathlib import Path
 
 import django.apps
 from django.db.models.fields.files import FileField
