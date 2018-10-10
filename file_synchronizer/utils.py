@@ -115,16 +115,13 @@ def search_for_files(classes, media_files):
                 if field.__class__ == FileField or field.__class__ \
                         == ImageField:
                     file = getattr(instance, field.name)
-                    try:
-                        if Path(file.path).exists():
-                            FileSynchronizer.objects.create(
-                                file=file,
-                                model_name=instance.__class__.__name__,
-                                date=instance.date,
-                                created_by=instance.created_by,
-                            )
-                    except ValueError:
-                        pass
+                    if file:
+                        FileSynchronizer.objects.create(
+                            file=file,
+                            model_name=instance.__class__.__name__,
+                            date=instance.date,
+                            created_by=instance.created_by,
+                        )
 
                     if file in media_files:
                         media_files.pop(media_files.index(file))
