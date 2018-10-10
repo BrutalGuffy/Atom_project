@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6588021d-1145-47f6-a845-d7dfc6e4a16f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/outdoor-3.jpg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/test/test2/music-3.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/6c8a0649-26f8-4702-bbc8-3055a80aa4fd/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/6c8a0649-26f8-4702-bbc8-3055a80aa4fd/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/6c8a0649-26f8-4702-bbc8-3055a80aa4fd/_metadata_/metadata.values.at" afterPath="$PROJECT_DIR$/.idea/dataSources/6c8a0649-26f8-4702-bbc8-3055a80aa4fd/_metadata_/metadata.values.at" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/6c8a0649-26f8-4702-bbc8-3055a80aa4fd.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/6c8a0649-26f8-4702-bbc8-3055a80aa4fd.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/atom/settings.py" afterPath="$PROJECT_DIR$/atom/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_synchronizer/admin.py" afterPath="$PROJECT_DIR$/file_synchronizer/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_synchronizer/tests.py" afterPath="$PROJECT_DIR$/file_synchronizer/tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_synchronizer/utils.py" afterPath="$PROJECT_DIR$/file_synchronizer/utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/atom/urls.py" afterPath="$PROJECT_DIR$/atom/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file_synchronizer/views.py" afterPath="$PROJECT_DIR$/file_synchronizer/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,16 +79,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/atom/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="90" column="19" lean-forward="true" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="files.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/myEvn/lib/python3.6/site-packages/django/db/models/fields/files.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,8 +92,8 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file_synchronizer/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="81" column="29" lean-forward="true" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
+            <state relative-caret-position="1764">
+              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding>
                 <element signature="e#54#63#0" expanded="true" />
               </folding>
@@ -139,7 +121,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file_synchronizer/tests.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1188">
@@ -151,31 +133,47 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/file_synchronizer/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/atom/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+              <folding>
+                <element signature="e#628#648#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file_synchronizer/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="25" column="53" lean-forward="false" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="decorators.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/myEvn/lib/python3.6/site-packages/django/utils/decorators.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="options.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/myEvn/lib/python3.6/site-packages/django/contrib/admin/options.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="1595" column="0" lean-forward="false" selection-start-line="1595" selection-start-column="0" selection-end-line="1595" selection-end-column="0" />
+            <state relative-caret-position="72">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -262,13 +260,13 @@
         <option value="$PROJECT_DIR$/photo_tool/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/file_synchronizer/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/file_synchronizer/disable_signals.py" />
-        <option value="$PROJECT_DIR$/file_synchronizer/views.py" />
-        <option value="$PROJECT_DIR$/atom/urls.py" />
         <option value="$PROJECT_DIR$/file_synchronizer/models.py" />
         <option value="$PROJECT_DIR$/atom/settings.py" />
-        <option value="$PROJECT_DIR$/file_synchronizer/utils.py" />
         <option value="$PROJECT_DIR$/file_synchronizer/admin.py" />
         <option value="$PROJECT_DIR$/file_synchronizer/tests.py" />
+        <option value="$PROJECT_DIR$/file_synchronizer/utils.py" />
+        <option value="$PROJECT_DIR$/file_synchronizer/views.py" />
+        <option value="$PROJECT_DIR$/atom/urls.py" />
       </list>
     </option>
   </component>
@@ -819,7 +817,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1215" height="1000" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21300256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -828,9 +826,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34061697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2383592" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34146342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.308204" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18625277" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -857,13 +855,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/lib/python3.6/unittest/mock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12618">
-          <caret line="706" column="21" lean-forward="false" selection-start-line="706" selection-start-column="21" selection-end-line="706" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hobby/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -988,13 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/atom/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/myEvn/lib/python3.6/site-packages/django/db/backends/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -1085,14 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_synchronizer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/atom/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1151,30 +1127,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_synchronizer/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="25" column="53" lean-forward="false" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_synchronizer/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="81" column="29" lean-forward="true" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-          <folding>
-            <element signature="e#54#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file_synchronizer/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1188">
           <caret line="66" column="15" lean-forward="false" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_synchronizer/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#54#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_synchronizer/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_synchronizer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/atom/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+          <folding>
+            <element signature="e#628#648#0" expanded="true" />
           </folding>
         </state>
       </provider>

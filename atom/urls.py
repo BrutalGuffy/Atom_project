@@ -22,6 +22,7 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
 from hobby import views
+from file_synchronizer import views as file_synchronizer_views
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -32,7 +33,7 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('login', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
-
+    path('initial_synch', file_synchronizer_views.initial_synch, name='initial'),
     path('add_like/', views.add_like, name='add_like'),
     path('add_like_comment/', views.add_like_comment, name='add_like_comment'),
     path('boards/<int:pk>/events/<int:event_pk>/more_comments/', views.more_comments, name='more_comments'),
