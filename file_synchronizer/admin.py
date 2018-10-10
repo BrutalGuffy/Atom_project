@@ -6,6 +6,9 @@ from file_synchronizer.utils import search_for_files
 from file_synchronizer.utils import get_classes
 from file_synchronizer.utils import get_files_list
 
+MEDIA_ROOT = 'media/'
+DIR = ''
+
 
 def delete_unknown_photos(modeladmin, request, queryset):
     """Метод для удаления всех объектов, не привязанных ни к одной
@@ -21,7 +24,9 @@ def refresh(modeladmin, request, queryset):
     """Метод для получения актуальной информации касательно привязанных
     и не привязанных к моделям файлов. Выполнен с помощью Admin actions.
     Не требует выделения объектов в панели админа."""
-    search_for_files(classes=get_classes(), media_files=get_files_list())
+    search_for_files(classes=get_classes(),
+                     media_files=get_files_list(root_media=MEDIA_ROOT,
+                                                dir=DIR))
 
 
 @admin.register(FileSynchronizer)

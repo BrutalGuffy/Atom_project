@@ -18,8 +18,6 @@ from django.db.models.signals import pre_save
 
 from file_synchronizer.models import FileSynchronizer
 
-MEDIA = 'media'
-
 
 class DisableSignals(object):
     """Класс для управления сигналами."""
@@ -74,22 +72,32 @@ def get_classes():
             if field.__class__ == FileField or field.__class__ == ImageField:
                 if model != FileSynchronizer:
                     classes.append(model)
+    print(classes)
     return classes
 
 
-def get_files_list():
-    """Метод возвращает список всех файлов в указанной директории
-    'MEDIA' и её сабдиректориях вместе с путями,
-    относительно 'MEDIA'."""
+def get_files_list(root_media, dir):
+    """Метод возвращает список всех файлов в указанной
+    директории 'MEDIA_ROOT' и её сабдиректориях, или в сабдиректории
+    DIR, если она указана."""
     media_files = []
-    for path, subdirs, files in os.walk(MEDIA):
+    for path, subdirs, files in os.walk(root_media + dir):
         for name in files:
-            if path == MEDIA:
-                media_files.append(os.path.join(name))
+            if dir == '':
+                if path == root_media:
+                    media_files.append(os.path.join(name))
+                else:
+                    media_files.append(os.path.join
+                                       (path[len(root_media): len(path)],
+                                        name))
             else:
-                media_files.append(os.path.join
-                                   (path[len(MEDIA) + 1: len(path)], name))
+                if path == root_media:
+                    media_files.append(os.path.join(name))
+                else:
+                    media_files.append(os.path.join
+                                       (dir, name))
 
+    print(media_files)
     return media_files
 
 
@@ -107,13 +115,16 @@ def search_for_files(classes, media_files):
                 if field.__class__ == FileField or field.__class__ \
                         == ImageField:
                     file = getattr(instance, field.name)
-                    if Path(file.path).exists():
-                        FileSynchronizer.objects.create(
-                            file=file,
-                            model_name=instance.__class__.__name__,
-                            date=instance.date,
-                            created_by=instance.created_by,
-                        )
+                    try:
+                        if Path(file.path).exists():
+                            FileSynchronizer.objects.create(
+                                file=file,
+                                model_name=instance.__class__.__name__,
+                                date=instance.date,
+                                created_by=instance.created_by,
+                            )
+                    except ValueError:
+                        pass
 
                     if file in media_files:
                         media_files.pop(media_files.index(file))

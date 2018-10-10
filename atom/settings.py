@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'debug_toolbar',
     'file_synchronizer',
     'hobby',
     'accounts',
